@@ -1,0 +1,164 @@
+@import "./variable";
+
+.header {
+  background-color: $light_blue;
+  width: 100vw;
+  height: 30px;
+  color: $white;
+  text-align: center;
+}
+
+.left {
+  float: left;
+  width: 300px;
+  //height: 700px;
+
+  &__contents {
+    color: $white;
+    height: 893px-96px;
+    background-color: #2f3e51;
+    &--top {
+      padding: 35px 20px 47px 20px;
+
+      background-color: #253141;
+      font-size: 16px;
+      &-name {
+        z-index: 2;
+        display: inline-block;
+        font-weight: bold;
+      }
+      &-list {
+        float: right;
+        z-index: 1;
+        display: inline-block;
+        .icon {
+          float: left;
+          padding-left: 10px;
+         }
+        a {
+          color: $white;
+        }
+      }
+    }
+
+    &--bellow {
+
+      padding: 20px;
+      &-group {
+        font-size: 15px;
+      }
+      &-message {
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+.inline {
+  color: $light_blue;
+  display: inline-block;
+  text-align: center;
+}
+.right {
+  position: absolute;
+  top: 0px;
+  left: 300px;
+  width: calc( 100vw - 300px );
+  &__contents {
+    padding-top: 30px;
+    &--top {
+      border-bottom: solid 1px #eeeeee;
+      padding: 35px 40px 0px 40px;
+
+      &-group {
+        padding-bottom: 0px;
+        margin: 0px;
+        color: #333333;
+        font-size: 20px;
+      }
+      &-member {
+        font-size: 12px;
+        color: $light_gray;
+        padding-top: 10px;
+        padding-bottom: 12px;
+      }
+      &-button {
+        float: right;
+        color: $light_blue;
+        padding: 0px 20px 0px;
+        height: 40px;
+        border: solid 2px $light_blue;
+        position: absolute;
+        top:58px;
+        right: 40px;
+        vertical-align: bottom;
+        text-align: center;
+        .edit {
+          padding-top: 10px;
+        }
+      }
+    }
+    &--bellow {
+      padding:46px 0px 40px 40px;
+      &-name {
+        font-size: 16px;
+        font-weight: bold;
+        float: left;
+      }
+      &-time {
+        font-size: 12px;
+        color: $light_gray;
+        text-indent: 10px;
+      }
+      &-message {
+        clear: both;
+        font-size: 14px;
+      }
+    }
+  }
+  &__footer {
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #eeeeee;
+    position: absolute;
+    bottom: 0px;
+    height: 90px;
+    left: 300px;
+
+    &--message {
+      margin: 20px 10px 20px 0px;
+      height: 50px;
+      width: calc( 100vw - 390px );
+    }
+      input {
+        height: 50px;
+        width: calc( 100vw - 505px );
+        padding-left: 10px;
+      }
+    .fa-image {
+      display: inline-block;
+      position: absolute;
+      bottom: 34px;
+      right: 180px;
+      z-index: 1;
+    }
+    &--button {
+      position: absolute;
+      padding: 0px 25px 0px;
+      height: 50px;
+      right: 40px;
+      bottom: 17px;
+      float: right;
+      color: #FFF;
+      border: solid 2px $light_blue;
+      margin: 20px 0px 0px 25px;
+      background-color: $light_blue;
+      display: inline-block;
+      vertical-align: middle;
+
+      .submit {
+        padding-top: 15px;
+      }
+    }
+  }
+}
