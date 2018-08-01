@@ -32,21 +32,23 @@
       .right__contents--top-button
         %p.edit Edit
 
-    .right__contents--bellow
-      .right__contents--bellow-name
-        %p tatsuki-nakamura
-      .right__contents--bellow-time
-        %p 2018/07/07
-      .right__contents--bellow-message
-        %p sss
+  = render @messages
 
 .right__footer
   .right__footer--message
-    %form{:action => "#", :method => "post"}
+    /%form{:action => "#", :method => "post"}
+    = form_for [@group, @message] do |f|
     .right__footer--message-post
-      %input{:type => "text", :name => "comments", placeholder: "type a message" }
+      /%input{:type => "text", :name => "comments", placeholder: "type a message" }
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image', do
+          = fa.icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
   .right__footer--icon
-    = link_to root_path do
-      = fa_icon 'image'
+    /= link_to root_path do
+      /= fa_icon 'image'
+
   .right__footer--button
-    %p.submit send
+    /%p.submit send
