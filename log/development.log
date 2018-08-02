@@ -1768,3 +1768,96 @@ Processing by GroupsController#new as HTML
 Completed 200 OK in 166ms (Views: 132.7ms | ActiveRecord: 8.7ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-08-02 13:29:42 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/index.html.haml within layouts/application
+  [1m[36mGroup Load (3.4ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 1[0m
+  Rendered shared/_side_bar.html.haml (59.0ms)
+  Rendered groups/index.html.haml within layouts/application (78.1ms)
+  Rendered layouts/_notifications.html.haml (1.7ms)
+Completed 200 OK in 957ms (Views: 894.9ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/groups/new" for 127.0.0.1 at 2018-08-02 13:29:59 +0900
+Processing by GroupsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/new.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered groups/_form.html.haml (119.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered groups/new.html.haml within layouts/application (134.6ms)
+  Rendered layouts/_notifications.html.haml (2.4ms)
+Completed 200 OK in 218ms (Views: 190.9ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/groups" for 127.0.0.1 at 2018-08-02 13:30:25 +0900
+Processing by GroupsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fmVmzLR7Z02YPO6FYB3hH6UL1VtMKN9SiTQONA9LjSfM4vQaEpri0YB6ziSoEv+zHturpGKeD3sxgwnxKT6xSg==", "group"=>{"name"=>"tech_camp_1", "user_ids"=>["", "1"]}, "commit"=>"登録する"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO `groups` (`name`, `created_at`, `updated_at`) VALUES ('tech_camp_1', '2018-08-02 04:30:25', '2018-08-02 04:30:25')[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `group_users` (`group_id`, `user_id`, `created_at`, `updated_at`) VALUES (1, 1, '2018-08-02 04:30:25', '2018-08-02 04:30:25')[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 26ms (ActiveRecord: 10.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-02 13:30:25 +0900
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 1[0m
+  [1m[36mMessage Load (0.9ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 1 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered shared/_side_bar.html.haml (24.1ms)
+  Rendered groups/index.html.haml within layouts/application (54.3ms)
+  Rendered layouts/_notifications.html.haml (2.1ms)
+Completed 200 OK in 102ms (Views: 92.5ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2018-08-02 13:30:31 +0900
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/edit.html.haml within layouts/application
+  Rendered users/edit.html.haml within layouts/application (16.1ms)
+  Rendered layouts/_notifications.html.haml (1.6ms)
+Completed 200 OK in 66ms (Views: 61.9ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2018-08-02 13:30:34 +0900
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1KQEXG8wjC7broUSCmyiiPT9oxP9pYMmARKSvorbYBq/hvAbUE3wQAie66xbD+KN3yjij7ek2FVGTgTAHAGviQ==", "user"=>{"name"=>"tatsuki-nakamura", "email"=>"sixokrock.7@gmail.com"}, "commit"=>"Update", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-02 13:30:34 +0900
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.7ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 1[0m
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 1 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered shared/_side_bar.html.haml (10.7ms)
+  Rendered groups/index.html.haml within layouts/application (14.3ms)
+  Rendered layouts/_notifications.html.haml (2.7ms)
+Completed 200 OK in 61ms (Views: 57.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/groups/new" for 127.0.0.1 at 2018-08-02 13:30:37 +0900
+Processing by GroupsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/new.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered groups/_form.html.haml (10.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered groups/new.html.haml within layouts/application (23.3ms)
+  Rendered layouts/_notifications.html.haml (1.9ms)
+Completed 200 OK in 65ms (Views: 57.6ms | ActiveRecord: 1.0ms)
+
+
