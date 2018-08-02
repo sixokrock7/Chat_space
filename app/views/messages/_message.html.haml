@@ -6,5 +6,5 @@
   .right__contents--bellow-message
     - if message.content.present?
       %p.right__contents--bellow-message__content
-        = message.content
+        = message.content, class: 'lower-message__content'
     = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
