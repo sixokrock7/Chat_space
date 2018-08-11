@@ -2,15 +2,18 @@
   box-sizing: border-box;
   color: $white;
   width: 300px;
+  margin-right: 0px;
   .header {
     background-color: $side_blue_dark;
     height: 100px;
     line-height: 100px;
     padding: 0 20px;
+    width: 260px;
     &__name {
       display: inline-block;
       font-size: $side_header_font;
       font-weight: bold;
+      float: left;
     }
     &__lists {
       display: inline-block;
