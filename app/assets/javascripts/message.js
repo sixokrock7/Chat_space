@@ -1,20 +1,21 @@
 $(function() {
 
-  function buildHTML(message) {
-    var html = `<p>
-                  <strong>
-                    <a href=>${message.user.name}></a>
-                    :
-                  </strong>
-                  ${format_posted_time(message.created_at)}
-                  <% if message.content.present? %>
-                    ${message.content}
-                  <% end %>
-                  <% if message.image.present? %>
-                    <img src="${message.image.url}">
-                </p>`
-    return html;
-  }
+function buildHTML(message) {
+  var html = `<p>
+                <strong>
+                  <a href=>${message.user.name}></a>
+                  :
+                </strong>
+                ${format_posted_time(message.created_at)}
+                <% if message.content.present? %>
+                  ${message.content}
+                <% end %>
+                <% if message.image.present? %>
+                  <img src="${message.image.url}">
+                <% end %>
+              </p>`
+  return html;
+}
   $('#form__submit').on('submit', function(e) {
     e.preventDefault();
 
