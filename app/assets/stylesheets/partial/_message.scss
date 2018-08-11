@@ -8,16 +8,16 @@
   text-align: center;
 }
 
-.left {
-  float: left;
-  width: 300px;
-  //height: 700px;
+.wrapper {
+  display: flex;
 
-  &__contents {
+  .side-bar {
+    float: left;
+    width: 300px;
     color: $white;
     height: 893px-96px;
     background-color: #2f3e51;
-    &--top {
+    &__top {
       padding: 35px 20px 47px 20px;
 
       background-color: #253141;
@@ -41,7 +41,7 @@
       }
     }
 
-    &--bellow {
+    &__bellow {
 
       padding: 20px;
       &-group {
@@ -52,24 +52,15 @@
       }
     }
   }
-}
-
-.inline {
-  color: $light_blue;
-  display: inline-block;
-  text-align: center;
-}
-.right {
-  position: absolute;
-  top: 0px;
-  left: 300px;
-  width: calc( 100vw - 300px );
-  &__contents {
+  .chat {
+    position: absolute;
+    top: 0px;
+    left: 300px;
+    width: calc( 100vw - 300px );
     padding-top: 30px;
-    &--top {
+    &__contents {
       border-bottom: solid 1px #eeeeee;
-      padding: 35px 40px 0px 40px;
-
+      padding: 25px 40px 5px 40px;
       &-group {
         padding-bottom: 0px;
         margin: 0px;
@@ -97,52 +88,59 @@
           padding-top: 10px;
         }
       }
-    }
-    &--bellow {
-      padding:46px 0px 40px 40px;
-      &-name {
-        font-size: 16px;
-        font-weight: bold;
-        float: left;
-      }
-      &-time {
-        font-size: 12px;
-        color: $light_gray;
-        text-indent: 10px;
-      }
-      &-message {
-        clear: both;
-        font-size: 14px;
+      &--bellow {
+        padding:46px 0px 40px 40px;
+        &-name {
+          font-size: 16px;
+          font-weight: bold;
+          float: left;
+        }
+        &-time {
+          font-size: 12px;
+          color: $light_gray;
+          text-indent: 10px;
+        }
+        &-message {
+          clear: both;
+          font-size: 14px;
+        }
       }
     }
   }
-  &__footer {
+  .form {
     padding-left: 40px;
     padding-right: 40px;
     background-color: #eeeeee;
     position: absolute;
     bottom: 0px;
-    height: 90px;
     left: 300px;
-
-    &--message {
+    width: calc( 100vw - 380px );
+    &__message {
       margin: 20px 10px 20px 0px;
       height: 50px;
       width: calc( 100vw - 390px );
-    }
-      input {
+
+      &--post {
         height: 50px;
         width: calc( 100vw - 505px );
         padding-left: 10px;
       }
-    .fa-image {
-      display: inline-block;
-      position: absolute;
-      bottom: 34px;
-      right: 180px;
-      z-index: 1;
     }
-    &--button {
+    &__mask {
+      &__image {
+      }
+      .icon {
+        display: inline-block;
+        position: absolute;
+        bottom: 34px;
+        right: 180px;
+        z-index: 1;
+      }
+      .hidden {
+        display: none;
+      }
+    }
+    .form__submit {
       position: absolute;
       padding: 0px 25px 0px;
       height: 50px;
@@ -155,10 +153,6 @@
       background-color: $light_blue;
       display: inline-block;
       vertical-align: middle;
-
-      .submit {
-        padding-top: 15px;
-      }
     }
   }
 }
