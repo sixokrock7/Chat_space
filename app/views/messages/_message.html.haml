@@ -1,10 +1,10 @@
-.right__contents--bellow
-  .right__contents--bellow-name
+.chat__contents--bellow
+  .chat__contents--bellow-name
     = message.user.name
-  .right__contents--bellow-time
+  .chat__contents--bellow-time
     = format_posted_time(message.created_at)
-  .right__contents--bellow-message
+  .chat__contents--bellow-message
     - if message.content.present?
-      %p.right__contents--bellow-message__content
+      %p.chat__contents--bellow-message
         = message.content, class: 'lower-message__content'
     = image_tag message.image.url, class: 'lower-message__image' if message.image.present?

@@ -1,54 +1,29 @@
 .header
+  = render "layouts/notifications"
   %p チャットグループが作成されました。
 
-.left
-  .left__contents
-    .left__contents--top
-      %h3.left__contents--top-name tatsuki-nakamura
-      %ul.left__contents--top-list
-        %li.icon
-          = link_to root_path do
-            = fa_icon 'pencil-square-o'
-        %li.icon
-          = link_to root_path do
-            = fa_icon 'cog'
-    .left__contents--bellow
-      .left__contents--bellow-group
-        %p techcamp
-      .left__contents--bellow-message
-        %p まだメッセージはありません
-    .left__contents--bellow
-      .left__contents--bellow-group
-        %p sampleグループ
-      .left__contents--bellow-message
-        %p aaa
-.right
-  .right__contents
-    .right__contents--top
-      .right__contents--top-group
-        %p techcamp
-      .right__contents--top-member
-        %p Members: tatsuki-nakamura
-      .right__contents--top-button
+.wrapper
+  / = render "messages/side_group-list", collection: @groups, as: :group
+  = render 'shared/side_bar'
+  .chat
+    .chat__contents
+      %p.chat__contents-group
+      = @group.name
+      %p.chat__contents-member
+      Members:
+      = @group.users.name
+    = link_to edit_group_path(@group) do
+      .chat__contents-button
         %p.edit Edit
 
-  = render @messages
+    = render @messages
 
-.right__footer
-  .right__footer--message
-    /%form{:action => "#", :method => "post"}
-    = form_for [@group, @message] do |f|
-    .right__footer--message-post
-      /%input{:type => "text", :name => "comments", placeholder: "type a message" }
-      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-      .form__mask
-        = f.label :image, class: 'form__mask__image', do
-          = fa.icon 'picture-o', class: 'icon'
-          = f.file_field :image, class: 'hidden'
-      = f.submit 'Send', class: 'form__submit'
-  .right__footer--icon
-    /= link_to root_path do
-      /= fa_icon 'image'
-
-  .right__footer--button
-    /%p.submit send
+  .form
+    .form__message
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message--post', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = f.file_field :image, class: 'hidden', onchange: "$(this).submit();"
+            = fa_icon 'picture-o', class: 'icon'
+        = f.submit 'Send', class: 'form__submit'
