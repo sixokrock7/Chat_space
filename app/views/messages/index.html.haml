@@ -3,27 +3,28 @@
   %p チャットグループが作成されました。
 
 .wrapper
-  / = render "messages/side_group-list", collection: @groups, as: :group
   = render 'shared/side_bar'
-  .chat
-    .chat__contents
-      %p.chat__contents-group
+  .right
+    .right__contents
+      %p.right__contents-group
       = @group.name
-      %p.chat__contents-member
+      %p.right__contents-member
       Members:
-      = @group.users.name
+      - @group.users.each do |user|
+        = user.name
     = link_to edit_group_path(@group) do
-      .chat__contents-button
+      .right__contents-button
         %p.edit Edit
 
-    = render @messages
+    .right__contents--bellow
+      = render @messages
 
   .form
     .form__message
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message], html: { id: "form" } do |f|
         = f.text_field :content, class: 'form__message--post', placeholder: 'type a message'
         .form__mask
           = f.label :image, class: 'form__mask__image' do
             = f.file_field :image, class: 'hidden', onchange: "$(this).submit();"
             = fa_icon 'picture-o', class: 'icon'
-        = f.submit 'Send', class: 'form__submit'
+        = f.submit 'Send', class: 'form__submit', name: "submit"

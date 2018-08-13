@@ -1,29 +1,40 @@
 $(function() {
-
 function buildHTML(message) {
-  var html = `<p>
-                <strong>
-                  <a href=>${message.user.name}></a>
-                  :
-                </strong>
-                ${format_posted_time(message.created_at)}
-                <% if message.content.present? %>
+  var image = '';
+  if ( image.length != 0 ){
+    image = ` <img src="${message.image}" class="lower-message__image">`
+  }
+  var html = `<div class="right__contents--bellow__box" data-message-id="${message.id}">
+                <div class="right__contents--bellow__box-name">${message.name}</div>
+                <div class="right__contents--bellow__box-time">
+                  ${message.created_at}
+                </div>
+                <div class="right__contents--bellow__box-message">
                   ${message.content}
-                <% end %>
-                <% if message.image.present? %>
-                  <img src="${message.image.url}">
-                <% end %>
-              </p>`
+                </div>
+                ${ image }
+              </div>`
   return html;
 }
-  $('#form__submit').on('submit', function(e) {
+
+function scroll() {
+  $('.right__contents--bellow').animate({
+    scrollTop: $('.right__contents--bellow')[0].scrollHeight
+  }, 'slow', 'swing');
+}
+
+  $('#form').on('submit', function(e) {
     e.preventDefault();
 
-    var formData = new FormData(this);
+    var formData = new FormData($(this).get(0));
+    for(item of formData){
+      console.log(item);
+    }
     //フォーム送信先のURLを定義
     //$(this)でthisで取得できる要素をjQueryオブジェクト化
     //attrメソッドでフォーム送信先のURLの値が入ったaction属性の値を取得
-    var url = $(this).attr('action')
+    // var url = $(this).attr('action');
+    var url = window.location.pathname;
     $.ajax({
       url: url,
       type: "POST",
@@ -36,13 +47,47 @@ function buildHTML(message) {
       contentType: false
     })
     .done(function(data) {
+      console.log(data);
       var html = buildHTML(data);
-      $('.right').append(html)
-      $('.form__message').val('')
-      $('.right__contents').animate({scrollTop: 0}, linear)
+      $('.right__contents--bellow').append(html);
+      $('.form__message--post').val('');
+      scroll();
+      $('.form__submit').prop('disabled', false);
     })
     .fail(function(){
       alert('error');
     })
-  })
+  });
+  //メッセージ自動更新機能
+  var interval = setInterval(function() {
+    if (window.location.pathname.match(/\/groups\/\d+\/messages/)) {
+      scroll();
+      $.ajax({
+        type: 'GET',
+        url: location.href.json,
+        dataType: 'json'
+      })
+      .done(function(data) {
+        var last_id = $('.right__contents--bellow__box').last().data('message-id');
+        console.log(last_id);
+        console.log("success");
+        var insertHTML = '';
+        console.log(data.messages);
+        data.messages.forEach(function(message) {
+          if (message.id > last_id) {
+            console.log("success!");
+            insertHTML =  buildHTML(message);
+          }
+        });
+
+        $('.right__contents--bellow').append(insertHTML);
+
+        scroll();
+      })
+      .fail(function(json) {
+        alert('自動更新ができませんでした。');
+      })
+    } else {
+    clearInterval(interval);
+  }}, 5000 );
 });
