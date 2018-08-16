@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function() {
 function buildHTML(message) {
   var image = '';
   if ( image.length != 0 ){
-    image = ` <img src="${message.image}" class="lower-message__image">`
+    image = `<img src="${message.image}" class="lower-message__image right__contents--bellow__box-message">`
   }
   var html = `<div class="right__contents--bellow__box" data-message-id="${message.id}">
                 <div class="right__contents--bellow__box-name">${message.name}</div>
@@ -34,7 +34,6 @@ function scroll() {
     //フォーム送信先のURLを定義
     //$(this)でthisで取得できる要素をjQueryオブジェクト化
     //attrメソッドでフォーム送信先のURLの値が入ったaction属性の値を取得
-    // var url = $(this).attr('action');
     var url = window.location.pathname;
     $.ajax({
       url: url,
@@ -52,6 +51,7 @@ function scroll() {
       var html = buildHTML(data);
       $('.right__contents--bellow').append(html);
       $('.form__message--post').val('');
+      $('.hidden').val('');
       scroll();
       $('.form__submit').prop('disabled', false);
     })
@@ -79,9 +79,8 @@ function scroll() {
             console.log("success!");
             insertHTML =  buildHTML(message);
           }
+          $('.right__contents--bellow').append(insertHTML);
         });
-
-        $('.right__contents--bellow').append(insertHTML);
 
         scroll();
       })

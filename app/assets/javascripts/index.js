@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function()  {
 var preInput = '';
 var userId = [];
 $(document).ready(function() {
-  var userId = [];
+  userId.length = 0;
 });
 
 function appendUser(user) {
@@ -35,11 +35,6 @@ function removeNoUser(user) {
                 <div class='chat-group-user'>${ user }</div>
               </li>`
   $('.chat-group-users').append(html);
-}
-
-function editElement(element) {
-  var result = "^" + element;
-  return result;
 }
 
   $('#user-search-field').on('keyup', function(e) {
