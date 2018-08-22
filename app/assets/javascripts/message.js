@@ -25,8 +25,10 @@ function scroll() {
 }
 
   $('#form').on('submit', function(e) {
+    //formを送信するデフォルトのイベントを止める
     e.preventDefault();
 
+    //イベントで発生したDOM要素をthisで取得して引数にとり、FormDataオブジェクトを作成
     var formData = new FormData($(this).get(0));
     for(item of formData){
       console.log(item);
@@ -36,16 +38,21 @@ function scroll() {
     //attrメソッドでフォーム送信先のURLの値が入ったaction属性の値を取得
     var url = window.location.pathname;
     $.ajax({
+      //リクエストする先のURLを指定
       url: url,
+      //HTTP通信の種類を指定
       type: "POST",
+      //サーバに送信する値を記述
       data: formData,
+      //サーバから返される値を記述
       dataType: 'json',
-      //dataげ指定したオブジェクトをクエリ文字列に変換
+      //dataで指定したオブジェクトをクエリ文字列に変換
       processData: false,
       //サーバにデータのファイル形式を伝えるヘッダです。こちらはデフォルトでは「text/xml」でコンテンツタイプをXMLとして返す
       //ajaxのリクエストがFormDataのときはどちらの値も適切な状態で送ることが可能なため、falseにすることで設定が上書きされることを防ぐ
       contentType: false
     })
+    //非同期通信に成功した時の動作
     .done(function(data) {
       console.log(data);
       var html = buildHTML(data);
