@@ -1,0 +1,6 @@
+# Logfile created on 2018-08-22 12:14:27 +0900 by logger.rb/54362
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-08-22 12:14:27 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [d443b089] Running [ -d $HOME/.rbenv/versions/2.3.1 ] as ec2-user@18.136.39.45
+ DEBUG [d443b089] Command: [ -d $HOME/.rbenv/versions/2.3.1 ]
