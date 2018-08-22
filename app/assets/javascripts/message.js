@@ -76,20 +76,22 @@ function scroll() {
         dataType: 'json'
       })
       .done(function(data) {
-        var last_id = $('.right__contents--bellow__box').last().data('message-id');
-        console.log(last_id);
-        console.log("success");
-        var insertHTML = '';
-        console.log(data.messages);
-        data.messages.forEach(function(message) {
-          if (message.id > last_id) {
-            console.log("success!");
-            insertHTML =  buildHTML(message);
-          }
-          $('.right__contents--bellow').append(insertHTML);
-        });
+        if (data.length !== 0) {
+          var last_id = $('.right__contents--bellow__box').last().data('message-id');
+          console.log(last_id);
+          console.log("success");
+          var insertHTML = '';
+          console.log(data.messages);
+          data.messages.forEach(function(message) {
+            if (message.id > last_id) {
+              console.log("success!");
+              insertHTML =  buildHTML(message);
+            }
+            $('.right__contents--bellow').append(insertHTML);
+          });
 
-        scroll();
+          scroll();
+        }
       })
       .fail(function(json) {
         alert('自動更新ができませんでした。');
