@@ -607,3 +607,19 @@
   INFO [5dfd5659] Running /usr/bin/env echo "Branch master (at f44d233e39be9354ce1a9db8726ed6b1db75a31a) deployed as release 20180822032223 by nakamuratatsuki" >> /var/www/Chat_space/revisions.log as ec2-user@18.136.39.45
  DEBUG [5dfd5659] Command: cd /var/www/Chat_space/releases && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.3.1" ; /usr/bin/env echo "Branch master (at f44d233e39be9354ce1a9db8726ed6b1db75a31a) deployed as release 20180822032223 by nakamuratatsuki" >> /var/www/Chat_space/revisions.log )
   INFO [9bc626bc] Finished in 0.450 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-08-22 13:26:20 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [71dd4505] Running [ -d $HOME/.rbenv/versions/2.3.1 ] as ec2-user@18.136.39.45
+ DEBUG [71dd4505] Command: [ -d $HOME/.rbenv/versions/2.3.1 ]
+ DEBUG [1e583681] Finished in 2.043 seconds with exit status 0 (successful).
+ DEBUG [0727abb0] Running [ ! -d /var/www/Chat_space/shared/config ] as ec2-user@18.136.39.45
+ DEBUG [0727abb0] Command: [ ! -d /var/www/Chat_space/shared/config ]
+ DEBUG [832653a3] Finished in 0.324 seconds with exit status 0 (successful).
+  INFO [f6343f1d] Running mkdir -p /var/www/Chat_space/shared/config as ec2-user@18.136.39.45
+ DEBUG [f6343f1d] Command: mkdir -p /var/www/Chat_space/shared/config
+  INFO [af32efa7] Finished in 0.306 seconds with exit status 0 (successful).
+ DEBUG Uploading config/secrets.yml 0.0%
+  INFO Uploading config/secrets.yml 100.0%
+  INFO [ba454513] Running /usr/bin/env mkdir -p /tmp as ec2-user@18.136.39.45
+ DEBUG [ba454513] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AcNz1ztVqIesieDaZHG4+Cxyinqi8V9KIjCXue6s" AWS_SECRET_ACCESS_KEY="AKIAJOLSQKLUTIVTDGJA" RBENV_VERSION="2.3.1" ; /usr/bin/env mkdir -p /tmp )
