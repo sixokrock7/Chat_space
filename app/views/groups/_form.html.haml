@@ -1,9 +1,9 @@
-= form_for group do |f|
+= form_for @group do |f|
   - if @group.errors.any?
     .chat-group-form__errors
       %h2= "#{group.errors.full_messages.count}件のエラーが発生しました。"
       %ul
-        - group.errors.full_messages.each do |message|
+        - @group.errors.full_messages.each do |message|
           %li= message
   .chat-group-form__field
     .chat-group-form__field--left
@@ -11,27 +11,23 @@
     .chat-group-form__field--right
       = f.text_field :name, class: 'chat-group-form__input', placeholder: 'グループ名を入力してください'
   .chat-group-form__field.clearfix
-    /この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
     .chat-group-form__field--left
-      = f.label :name, 'チャットメンバーを追加', class: 'chat-group-form__label'
+      = f.label 'チャットメンバーを追加', class: 'chat-group-form__label'
     .chat-group-form__field--right
       .chat-group-form__search.clearfix
-        = f.text_field :name, id: 'user-search-field', placeholder: '追加したいユーザー名を入力してください', class: 'chat-group-form__field--right chat-group-form__input'
+        %input#user-search-field.chat-group-form__field--right.chat-group-form__input{ type: "text", placeholder: '追加したいユーザー名を入力してください' }
         #user-search-result
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
-      = f.label :name, 'チャットメンバー', class: 'chat-group-form__label'
+      = f.label 'チャットメンバー', class: 'chat-group-form__label'
     .chat-group-form__field--right
-      / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
-      /= f.collection_check_boxes :user_ids, User.all, :id, :name
-      / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
       .chat-group-users
-        .chat-group-user.clearfix{id: "#{current_user.id}"}
-          = f.hidden_field :name, name:'group[user_ids][]', value: "#{current_user.id}"
+        .chat-group-user.clearfix{ id: "#{current_user.id}"}
+          %input{ type: "hidden", name:'group[user_ids][]', value: "#{current_user.id}" }
           .chat-group-user__name
             - @group.users.each do |users|
               = users.name
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
-      = f.submit class: 'chat-group-form__action-btn'
+      = f.submit 'Save', class: 'chat-group-form__action-btn'

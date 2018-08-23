@@ -27,12 +27,11 @@ function scroll() {
   $('#form').on('submit', function(e) {
     //formを送信するデフォルトのイベントを止める
     e.preventDefault();
-
     //イベントで発生したDOM要素をthisで取得して引数にとり、FormDataオブジェクトを作成
     var formData = new FormData($(this).get(0));
-    for(item of formData){
-      console.log(item);
-    }
+    // for(item of formData){
+    //   console.log(item);
+    // }
     //フォーム送信先のURLを定義
     //$(this)でthisで取得できる要素をjQueryオブジェクト化
     //attrメソッドでフォーム送信先のURLの値が入ったaction属性の値を取得
@@ -54,7 +53,6 @@ function scroll() {
     })
     //非同期通信に成功した時の動作
     .done(function(data) {
-      console.log(data);
       var html = buildHTML(data);
       $('.right__contents--bellow').append(html);
       $('.form__message--post').val('');
@@ -69,27 +67,20 @@ function scroll() {
   //メッセージ自動更新機能
   var interval = setInterval(function() {
     if (window.location.pathname.match(/\/groups\/\d+\/messages/)) {
-      scroll();
+      var id = $(".right__contents--bellow__box").last().data('message-id');
       $.ajax({
         type: 'GET',
         url: location.href.json,
+        data: {id: id},
         dataType: 'json'
       })
       .done(function(data) {
         if (data.length !== 0) {
-          var last_id = $('.right__contents--bellow__box').last().data('message-id');
-          console.log(last_id);
-          console.log("success");
           var insertHTML = '';
-          console.log(data.messages);
           data.messages.forEach(function(message) {
-            if (message.id > last_id) {
-              console.log("success!");
-              insertHTML =  buildHTML(message);
-            }
+            insertHTML =  buildHTML(message);
             $('.right__contents--bellow').append(insertHTML);
           });
-
           scroll();
         }
       })

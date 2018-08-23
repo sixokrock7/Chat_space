@@ -6,22 +6,21 @@ $(document).ready(function() {
   userId.length = 0;
 });
 
-function appendUser(user) {
+function buildHtml(user) {
   var html = `<div class="chat-group-user clearfix">
                 <p class="chat-group-user__name js-user__name">${ user.name }</p>
                 <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${ user.id }" data-user-name="${ user.name }">追加</a>
               </div>`
-  $('#user-search-result').append(html)
+  return html;
 }
 
-function removeUser(id , name) {
+function appendUser(id, name) {
   var html = `<div class='chat-group-user clearfix js-chat-member' id='${ id }'>
                 <input name='group[user_ids][]' type='hidden' value='${ id }'>
                 <p class='chat-group-user__name'>${ name }</p>
                 <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
               </div>`
-  userId.push(id);
-  $('.chat-group-users').append(html)
+  return html;
 }
 
 function appendNoUser(user) {
@@ -30,35 +29,33 @@ function appendNoUser(user) {
               </div>`
   $('#user-search-result').append(html)
 }
-function removeNoUser(user) {
-  var html = `<li>
-                <div class='chat-group-user'>${ user }</div>
-              </li>`
-  $('.chat-group-users').append(html);
-}
 
   $('#user-search-field').on('keyup', function(e) {
-    e.preventDefault();
+    //e.preventDefault();
     var input = $.trim($(this).val());
+    console.log($(this));
     if (input.length !== 0 && preInput !== input ) {
       $.ajax({
         type: 'GET',
         url: '/users',
-        data: { keyword: input,
-                id: userId },
+        data: {
+                keyword: input,
+                id: userId
+              },
         dataType: 'json'
       })
       .done(function(users) {
         $('#user-search-result').empty();
+        var insertHtml = "";
         if (users.length !== 0 ) {
           users.forEach(function(user) {
-            appendUser(user);
+            insertHtml += buildHtml(user);
+            $('#user-search-result').append(insertHtml);
           });
-         }
+        }
         else {
           appendNoUser("一致するユーザーはいません");
         }
-        preInput = input;
       })
       .fail(function() {
         alert('ユーザー検索に失敗しました');
@@ -68,12 +65,14 @@ function removeNoUser(user) {
       $('#user-search-result').empty();
       appendNoUser("一致するユーザーはいません");
      }
+     preInput = input;
   });
-  $(document).on('click', '.chat-group-user__btn--add', function() {
-      var id = $(this).attr("data-user-id");
-      var name = $(this).attr("data-user-name");
+  $('#user-search-result').on('click', '.chat-group-user__btn--add', function() {
+      var id = $(this).data("user-id");
+      var name = $(this).data("user-name");
+      var insertUser = appendUser(id, name);
+      $('.chat-group-users').append(insertUser);
       $(this).parent().remove();
-      removeUser(id, name);
     });
   $(document).on('click', '.chat-group-user__btn--remove', function() {
     $(this).parent().remove();

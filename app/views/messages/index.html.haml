@@ -1,17 +1,13 @@
-.header
-  = render "layouts/notifications"
-  %p チャットグループが作成されました。
-
 .wrapper
   = render 'shared/side_bar'
   .right
     .right__contents
       %p.right__contents-group
-      = @group.name
+        = @group.name
       %p.right__contents-member
-      Members:
-      - @group.users.each do |user|
-        = user.name
+        Members:
+        - @group.users.each do |user|
+          = user.name
     = link_to edit_group_path(@group) do
       .right__contents-button
         %p.edit Edit
