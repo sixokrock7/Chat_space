@@ -1,10 +1,8 @@
 $(document).on('turbolinks:load', function() {
 
 function buildHTML(message) {
-  var image = '';
-  if ( image.length != 0 ){
-    image = `<img src="${message.image}" class="lower-message__image right__contents--bellow__box-message">`
-  }
+  var image = "";
+  var image = (message.image)? `<image class="lower-message_image right__contents--bellow__box-message" src="${message.image}">`:"";
   var html = `<div class="right__contents--bellow__box" data-message-id="${message.id}">
                 <div class="right__contents--bellow__box-name">${message.name}</div>
                 <div class="right__contents--bellow__box-time">
