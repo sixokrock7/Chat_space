@@ -29,12 +29,7 @@ function scroll() {
     e.preventDefault();
     //イベントで発生したDOM要素をthisで取得して引数にとり、FormDataオブジェクトを作成
     var formData = new FormData($(this).get(0));
-    // for(item of formData){
-    //   console.log(item);
-    // }
     //フォーム送信先のURLを定義
-    //$(this)でthisで取得できる要素をjQueryオブジェクト化
-    //attrメソッドでフォーム送信先のURLの値が入ったaction属性の値を取得
     var url = window.location.pathname;
     $.ajax({
       //リクエストする先のURLを指定
@@ -70,7 +65,7 @@ function scroll() {
       var id = $(".right__contents--bellow__box").last().data('message-id');
       $.ajax({
         type: 'GET',
-        url: location.href.json,
+        url: window.location.href,
         data: {id: id},
         dataType: 'json'
       })
@@ -84,7 +79,7 @@ function scroll() {
           scroll();
         }
       })
-      .fail(function(json) {
+      .fail(function() {
         alert('自動更新ができませんでした。');
       })
     } else {

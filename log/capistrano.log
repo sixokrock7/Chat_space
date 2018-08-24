@@ -2113,3 +2113,294 @@
   INFO [a6a24bfd] Running /usr/bin/env echo "Branch master (at 550e8de090b8e2356a0eb09e5e8b5e1f6c6d89c6) deployed as release 20180823053300 by nakamuratatsuki" >> /var/www/Chat_space/revisions.log as ec2-user@18.136.39.45
  DEBUG [a6a24bfd] Command: cd /var/www/Chat_space/releases && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env echo "Branch master (at 550e8de090b8e2356a0eb09e5e8b5e1f6c6d89c6) deployed as release 20180823053300 by nakamuratatsuki" >> /var/www/Chat_space/revisions.log )
   INFO [af7b3289] Finished in 0.507 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-08-23 14:55:49 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [fae28936] Running [ -d $HOME/.rbenv/versions/2.3.1 ] as ec2-user@18.136.39.45
+ DEBUG [fae28936] Command: [ -d $HOME/.rbenv/versions/2.3.1 ]
+ DEBUG [aee9ac76] Finished in 1.574 seconds with exit status 0 (successful).
+ DEBUG [0fe0faeb] Running [ ! -d /var/www/Chat_space/shared/config ] as ec2-user@18.136.39.45
+ DEBUG [0fe0faeb] Command: [ ! -d /var/www/Chat_space/shared/config ]
+ DEBUG [4fb45fc7] Finished in 0.738 seconds with exit status 1 (failed).
+ DEBUG Uploading config/secrets.yml 0.0%
+  INFO Uploading config/secrets.yml 100.0%
+  INFO [296befad] Running /usr/bin/env mkdir -p /tmp as ec2-user@18.136.39.45
+ DEBUG [296befad] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env mkdir -p /tmp )
+  INFO [ada99680] Finished in 0.458 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-Chat_space-production-nakamuratatsuki.sh 0.0%
+  INFO Uploading /tmp/git-ssh-Chat_space-production-nakamuratatsuki.sh 100.0%
+  INFO [c205899e] Running /usr/bin/env chmod 700 /tmp/git-ssh-Chat_space-production-nakamuratatsuki.sh as ec2-user@18.136.39.45
+ DEBUG [c205899e] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env chmod 700 /tmp/git-ssh-Chat_space-production-nakamuratatsuki.sh )
+  INFO [58321e92] Finished in 0.637 seconds with exit status 0 (successful).
+  INFO [0064636f] Running /usr/bin/env git ls-remote git@github.com:sixokrock7/Chat_space.git HEAD as ec2-user@18.136.39.45
+ DEBUG [0064636f] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Chat_space-production-nakamuratatsuki.sh" ; /usr/bin/env git ls-remote git@github.com:sixokrock7/Chat_space.git HEAD )
+ DEBUG [c66a8020] 	d1dd69f19dfcd9f108f27d7807f29f1b1a03ae50	HEAD
+  INFO [c66a8020] Finished in 3.208 seconds with exit status 0 (successful).
+  INFO [d02417ae] Running /usr/bin/env mkdir -p /var/www/Chat_space/shared /var/www/Chat_space/releases as ec2-user@18.136.39.45
+ DEBUG [d02417ae] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env mkdir -p /var/www/Chat_space/shared /var/www/Chat_space/releases )
+  INFO [b3f507b7] Finished in 0.277 seconds with exit status 0 (successful).
+  INFO [08eb49ff] Running /usr/bin/env mkdir -p /var/www/Chat_space/shared/log /var/www/Chat_space/shared/tmp/pids /var/www/Chat_space/shared/tmp/cache /var/www/Chat_space/shared/tmp/sockets /var/www/Chat_space/shared/vendor/bundle /var/www/Chat_space/shared/public/system /var/www/Chat_space/shared/public/uploads /var/www/Chat_space/shared/public/assets as ec2-user@18.136.39.45
+ DEBUG [08eb49ff] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env mkdir -p /var/www/Chat_space/shared/log /var/www/Chat_space/shared/tmp/pids /var/www/Chat_space/shared/tmp/cache /var/www/Chat_space/shared/tmp/sockets /var/www/Chat_space/shared/vendor/bundle /var/www/Chat_space/shared/public/system /var/www/Chat_space/shared/public/uploads /var/www/Chat_space/shared/public/assets )
+  INFO [196d5d0b] Finished in 0.438 seconds with exit status 0 (successful).
+  INFO [943a2831] Running /usr/bin/env mkdir -p /var/www/Chat_space/shared/config as ec2-user@18.136.39.45
+ DEBUG [943a2831] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env mkdir -p /var/www/Chat_space/shared/config )
+  INFO [89ccba36] Finished in 0.625 seconds with exit status 0 (successful).
+ DEBUG [0db4a449] Running [ -f /var/www/Chat_space/shared/config/secrets.yml ] as ec2-user@18.136.39.45
+ DEBUG [0db4a449] Command: [ -f /var/www/Chat_space/shared/config/secrets.yml ]
+ DEBUG [b7307332] Finished in 1.262 seconds with exit status 0 (successful).
+ DEBUG [89c13127] Running [ -f /var/www/Chat_space/current/REVISION ] as ec2-user@18.136.39.45
+ DEBUG [89c13127] Command: [ -f /var/www/Chat_space/current/REVISION ]
+ DEBUG [013205d8] Finished in 0.609 seconds with exit status 0 (successful).
+ DEBUG [b227f8c5] Running /usr/bin/env cat /var/www/Chat_space/current/REVISION 2>/dev/null as ec2-user@18.136.39.45
+ DEBUG [b227f8c5] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env cat /var/www/Chat_space/current/REVISION 2>/dev/null )
+ DEBUG [89bb89ef] 	550e8de090b8e2356a0eb09e5e8b5e1f6c6d89c6
+ DEBUG [89bb89ef] Finished in 0.573 seconds with exit status 0 (successful).
+ DEBUG [72a01e34] Running [ -f /var/www/Chat_space/repo/HEAD ] as ec2-user@18.136.39.45
+ DEBUG [72a01e34] Command: [ -f /var/www/Chat_space/repo/HEAD ]
+ DEBUG [0b43272f] Finished in 0.533 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/Chat_space/repo
+ DEBUG [5bcccd77] Running if test ! -d /var/www/Chat_space/repo; then echo "Directory does not exist '/var/www/Chat_space/repo'" 1>&2; false; fi as ec2-user@18.136.39.45
+ DEBUG [5bcccd77] Command: if test ! -d /var/www/Chat_space/repo; then echo "Directory does not exist '/var/www/Chat_space/repo'" 1>&2; false; fi
+ DEBUG [080bf8cb] Finished in 0.380 seconds with exit status 0 (successful).
+  INFO [03fbcc2c] Running /usr/bin/env git remote set-url origin git@github.com:sixokrock7/Chat_space.git as ec2-user@18.136.39.45
+ DEBUG [03fbcc2c] Command: cd /var/www/Chat_space/repo && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Chat_space-production-nakamuratatsuki.sh" ; /usr/bin/env git remote set-url origin git@github.com:sixokrock7/Chat_space.git )
+  INFO [774e0812] Finished in 0.308 seconds with exit status 0 (successful).
+  INFO [8085f43a] Running /usr/bin/env git remote update --prune as ec2-user@18.136.39.45
+ DEBUG [8085f43a] Command: cd /var/www/Chat_space/repo && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Chat_space-production-nakamuratatsuki.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [2c82d449] 	Fetching origin
+ DEBUG [2c82d449] 	From github.com:sixokrock7/Chat_space
+   550e8de..d1dd69f  master     -> master
+  INFO [2c82d449] Finished in 5.983 seconds with exit status 0 (successful).
+ DEBUG [c77f9dee] Running if test ! -d /var/www/Chat_space/repo; then echo "Directory does not exist '/var/www/Chat_space/repo'" 1>&2; false; fi as ec2-user@18.136.39.45
+ DEBUG [c77f9dee] Command: if test ! -d /var/www/Chat_space/repo; then echo "Directory does not exist '/var/www/Chat_space/repo'" 1>&2; false; fi
+ DEBUG [60a2d2d7] Finished in 0.288 seconds with exit status 0 (successful).
+  INFO [b295b2b3] Running /usr/bin/env mkdir -p /var/www/Chat_space/releases/20180823055601 as ec2-user@18.136.39.45
+ DEBUG [b295b2b3] Command: cd /var/www/Chat_space/repo && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Chat_space-production-nakamuratatsuki.sh" ; /usr/bin/env mkdir -p /var/www/Chat_space/releases/20180823055601 )
+  INFO [dcf6a63a] Finished in 0.306 seconds with exit status 0 (successful).
+  INFO [eefaf96e] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/Chat_space/releases/20180823055601 as ec2-user@18.136.39.45
+ DEBUG [eefaf96e] Command: cd /var/www/Chat_space/repo && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Chat_space-production-nakamuratatsuki.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/Chat_space/releases/20180823055601 )
+  INFO [57a37b3b] Finished in 0.938 seconds with exit status 0 (successful).
+ DEBUG [b2d66359] Running if test ! -d /var/www/Chat_space/repo; then echo "Directory does not exist '/var/www/Chat_space/repo'" 1>&2; false; fi as ec2-user@18.136.39.45
+ DEBUG [b2d66359] Command: if test ! -d /var/www/Chat_space/repo; then echo "Directory does not exist '/var/www/Chat_space/repo'" 1>&2; false; fi
+ DEBUG [aed8d7bb] Finished in 0.295 seconds with exit status 0 (successful).
+ DEBUG [e8baca43] Running /usr/bin/env git rev-list --max-count=1 master as ec2-user@18.136.39.45
+ DEBUG [e8baca43] Command: cd /var/www/Chat_space/repo && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-Chat_space-production-nakamuratatsuki.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [210dc814] 	d1dd69f19dfcd9f108f27d7807f29f1b1a03ae50
+ DEBUG [210dc814] Finished in 0.305 seconds with exit status 0 (successful).
+ DEBUG [07ca89e3] Running if test ! -d /var/www/Chat_space/releases/20180823055601; then echo "Directory does not exist '/var/www/Chat_space/releases/20180823055601'" 1>&2; false; fi as ec2-user@18.136.39.45
+ DEBUG [07ca89e3] Command: if test ! -d /var/www/Chat_space/releases/20180823055601; then echo "Directory does not exist '/var/www/Chat_space/releases/20180823055601'" 1>&2; false; fi
+ DEBUG [9338a730] Finished in 0.548 seconds with exit status 0 (successful).
+  INFO [8b51edb6] Running /usr/bin/env echo "d1dd69f19dfcd9f108f27d7807f29f1b1a03ae50" > REVISION as ec2-user@18.136.39.45
+ DEBUG [8b51edb6] Command: cd /var/www/Chat_space/releases/20180823055601 && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env echo "d1dd69f19dfcd9f108f27d7807f29f1b1a03ae50" > REVISION )
+  INFO [28c2e590] Finished in 0.290 seconds with exit status 0 (successful).
+  INFO [d07e2fe1] Running /usr/bin/env mkdir -p /var/www/Chat_space/releases/20180823055601/config as ec2-user@18.136.39.45
+ DEBUG [d07e2fe1] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env mkdir -p /var/www/Chat_space/releases/20180823055601/config )
+  INFO [503154d2] Finished in 0.497 seconds with exit status 0 (successful).
+ DEBUG [f3b06f9e] Running [ -L /var/www/Chat_space/releases/20180823055601/config/secrets.yml ] as ec2-user@18.136.39.45
+ DEBUG [f3b06f9e] Command: [ -L /var/www/Chat_space/releases/20180823055601/config/secrets.yml ]
+ DEBUG [2940e35c] Finished in 0.348 seconds with exit status 1 (failed).
+ DEBUG [fd696db3] Running [ -f /var/www/Chat_space/releases/20180823055601/config/secrets.yml ] as ec2-user@18.136.39.45
+ DEBUG [fd696db3] Command: [ -f /var/www/Chat_space/releases/20180823055601/config/secrets.yml ]
+ DEBUG [26037824] Finished in 0.337 seconds with exit status 0 (successful).
+  INFO [d0e9a64c] Running /usr/bin/env rm /var/www/Chat_space/releases/20180823055601/config/secrets.yml as ec2-user@18.136.39.45
+ DEBUG [d0e9a64c] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env rm /var/www/Chat_space/releases/20180823055601/config/secrets.yml )
+  INFO [85621f99] Finished in 0.638 seconds with exit status 0 (successful).
+  INFO [fa614624] Running /usr/bin/env ln -s /var/www/Chat_space/shared/config/secrets.yml /var/www/Chat_space/releases/20180823055601/config/secrets.yml as ec2-user@18.136.39.45
+ DEBUG [fa614624] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env ln -s /var/www/Chat_space/shared/config/secrets.yml /var/www/Chat_space/releases/20180823055601/config/secrets.yml )
+  INFO [bf305805] Finished in 0.402 seconds with exit status 0 (successful).
+  INFO [207c887a] Running /usr/bin/env mkdir -p /var/www/Chat_space/releases/20180823055601 /var/www/Chat_space/releases/20180823055601/tmp /var/www/Chat_space/releases/20180823055601/vendor /var/www/Chat_space/releases/20180823055601/public as ec2-user@18.136.39.45
+ DEBUG [207c887a] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env mkdir -p /var/www/Chat_space/releases/20180823055601 /var/www/Chat_space/releases/20180823055601/tmp /var/www/Chat_space/releases/20180823055601/vendor /var/www/Chat_space/releases/20180823055601/public )
+  INFO [735dd8a0] Finished in 0.537 seconds with exit status 0 (successful).
+ DEBUG [b8934a71] Running [ -L /var/www/Chat_space/releases/20180823055601/log ] as ec2-user@18.136.39.45
+ DEBUG [b8934a71] Command: [ -L /var/www/Chat_space/releases/20180823055601/log ]
+ DEBUG [8b848230] Finished in 0.289 seconds with exit status 1 (failed).
+ DEBUG [821cb448] Running [ -d /var/www/Chat_space/releases/20180823055601/log ] as ec2-user@18.136.39.45
+ DEBUG [821cb448] Command: [ -d /var/www/Chat_space/releases/20180823055601/log ]
+ DEBUG [305a7778] Finished in 0.580 seconds with exit status 0 (successful).
+  INFO [cf045a5f] Running /usr/bin/env rm -rf /var/www/Chat_space/releases/20180823055601/log as ec2-user@18.136.39.45
+ DEBUG [cf045a5f] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env rm -rf /var/www/Chat_space/releases/20180823055601/log )
+  INFO [5825026c] Finished in 0.310 seconds with exit status 0 (successful).
+  INFO [3dabb15d] Running /usr/bin/env ln -s /var/www/Chat_space/shared/log /var/www/Chat_space/releases/20180823055601/log as ec2-user@18.136.39.45
+ DEBUG [3dabb15d] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env ln -s /var/www/Chat_space/shared/log /var/www/Chat_space/releases/20180823055601/log )
+  INFO [c05536b1] Finished in 0.779 seconds with exit status 0 (successful).
+ DEBUG [9ca60c6c] Running [ -L /var/www/Chat_space/releases/20180823055601/tmp/pids ] as ec2-user@18.136.39.45
+ DEBUG [9ca60c6c] Command: [ -L /var/www/Chat_space/releases/20180823055601/tmp/pids ]
+ DEBUG [f534fab1] Finished in 0.512 seconds with exit status 1 (failed).
+ DEBUG [31e3f80b] Running [ -d /var/www/Chat_space/releases/20180823055601/tmp/pids ] as ec2-user@18.136.39.45
+ DEBUG [31e3f80b] Command: [ -d /var/www/Chat_space/releases/20180823055601/tmp/pids ]
+ DEBUG [9341d23b] Finished in 0.296 seconds with exit status 1 (failed).
+  INFO [7de2dc21] Running /usr/bin/env ln -s /var/www/Chat_space/shared/tmp/pids /var/www/Chat_space/releases/20180823055601/tmp/pids as ec2-user@18.136.39.45
+ DEBUG [7de2dc21] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env ln -s /var/www/Chat_space/shared/tmp/pids /var/www/Chat_space/releases/20180823055601/tmp/pids )
+  INFO [4953a002] Finished in 0.291 seconds with exit status 0 (successful).
+ DEBUG [2edde3cd] Running [ -L /var/www/Chat_space/releases/20180823055601/tmp/cache ] as ec2-user@18.136.39.45
+ DEBUG [2edde3cd] Command: [ -L /var/www/Chat_space/releases/20180823055601/tmp/cache ]
+ DEBUG [a59139c8] Finished in 0.576 seconds with exit status 1 (failed).
+ DEBUG [0184bc78] Running [ -d /var/www/Chat_space/releases/20180823055601/tmp/cache ] as ec2-user@18.136.39.45
+ DEBUG [0184bc78] Command: [ -d /var/www/Chat_space/releases/20180823055601/tmp/cache ]
+ DEBUG [f1349daa] Finished in 0.615 seconds with exit status 0 (successful).
+  INFO [722571f5] Running /usr/bin/env rm -rf /var/www/Chat_space/releases/20180823055601/tmp/cache as ec2-user@18.136.39.45
+ DEBUG [722571f5] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env rm -rf /var/www/Chat_space/releases/20180823055601/tmp/cache )
+  INFO [b840583b] Finished in 0.355 seconds with exit status 0 (successful).
+  INFO [c5d91f44] Running /usr/bin/env ln -s /var/www/Chat_space/shared/tmp/cache /var/www/Chat_space/releases/20180823055601/tmp/cache as ec2-user@18.136.39.45
+ DEBUG [c5d91f44] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env ln -s /var/www/Chat_space/shared/tmp/cache /var/www/Chat_space/releases/20180823055601/tmp/cache )
+  INFO [c7b7fd1b] Finished in 0.567 seconds with exit status 0 (successful).
+ DEBUG [172e1800] Running [ -L /var/www/Chat_space/releases/20180823055601/tmp/sockets ] as ec2-user@18.136.39.45
+ DEBUG [172e1800] Command: [ -L /var/www/Chat_space/releases/20180823055601/tmp/sockets ]
+ DEBUG [8b4188d1] Finished in 0.606 seconds with exit status 1 (failed).
+ DEBUG [df3f2deb] Running [ -d /var/www/Chat_space/releases/20180823055601/tmp/sockets ] as ec2-user@18.136.39.45
+ DEBUG [df3f2deb] Command: [ -d /var/www/Chat_space/releases/20180823055601/tmp/sockets ]
+ DEBUG [53577a97] Finished in 0.362 seconds with exit status 1 (failed).
+  INFO [68e3549d] Running /usr/bin/env ln -s /var/www/Chat_space/shared/tmp/sockets /var/www/Chat_space/releases/20180823055601/tmp/sockets as ec2-user@18.136.39.45
+ DEBUG [68e3549d] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env ln -s /var/www/Chat_space/shared/tmp/sockets /var/www/Chat_space/releases/20180823055601/tmp/sockets )
+  INFO [82955e75] Finished in 0.686 seconds with exit status 0 (successful).
+ DEBUG [afda172d] Running [ -L /var/www/Chat_space/releases/20180823055601/vendor/bundle ] as ec2-user@18.136.39.45
+ DEBUG [afda172d] Command: [ -L /var/www/Chat_space/releases/20180823055601/vendor/bundle ]
+ DEBUG [7e511311] Finished in 0.510 seconds with exit status 1 (failed).
+ DEBUG [71bf7a08] Running [ -d /var/www/Chat_space/releases/20180823055601/vendor/bundle ] as ec2-user@18.136.39.45
+ DEBUG [71bf7a08] Command: [ -d /var/www/Chat_space/releases/20180823055601/vendor/bundle ]
+ DEBUG [98a79a2b] Finished in 0.310 seconds with exit status 1 (failed).
+  INFO [97841fd3] Running /usr/bin/env ln -s /var/www/Chat_space/shared/vendor/bundle /var/www/Chat_space/releases/20180823055601/vendor/bundle as ec2-user@18.136.39.45
+ DEBUG [97841fd3] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env ln -s /var/www/Chat_space/shared/vendor/bundle /var/www/Chat_space/releases/20180823055601/vendor/bundle )
+  INFO [9f6cf78c] Finished in 0.601 seconds with exit status 0 (successful).
+ DEBUG [c8527790] Running [ -L /var/www/Chat_space/releases/20180823055601/public/system ] as ec2-user@18.136.39.45
+ DEBUG [c8527790] Command: [ -L /var/www/Chat_space/releases/20180823055601/public/system ]
+ DEBUG [d958f4cf] Finished in 0.319 seconds with exit status 1 (failed).
+ DEBUG [ee4f0ab4] Running [ -d /var/www/Chat_space/releases/20180823055601/public/system ] as ec2-user@18.136.39.45
+ DEBUG [ee4f0ab4] Command: [ -d /var/www/Chat_space/releases/20180823055601/public/system ]
+ DEBUG [f0da1f5d] Finished in 0.521 seconds with exit status 1 (failed).
+  INFO [daf3a1a0] Running /usr/bin/env ln -s /var/www/Chat_space/shared/public/system /var/www/Chat_space/releases/20180823055601/public/system as ec2-user@18.136.39.45
+ DEBUG [daf3a1a0] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env ln -s /var/www/Chat_space/shared/public/system /var/www/Chat_space/releases/20180823055601/public/system )
+  INFO [a4e884b5] Finished in 0.375 seconds with exit status 0 (successful).
+ DEBUG [3976bdcd] Running [ -L /var/www/Chat_space/releases/20180823055601/public/uploads ] as ec2-user@18.136.39.45
+ DEBUG [3976bdcd] Command: [ -L /var/www/Chat_space/releases/20180823055601/public/uploads ]
+ DEBUG [98725df1] Finished in 0.657 seconds with exit status 1 (failed).
+ DEBUG [02d1d069] Running [ -d /var/www/Chat_space/releases/20180823055601/public/uploads ] as ec2-user@18.136.39.45
+ DEBUG [02d1d069] Command: [ -d /var/www/Chat_space/releases/20180823055601/public/uploads ]
+ DEBUG [1b536430] Finished in 0.846 seconds with exit status 0 (successful).
+  INFO [0a83fbbb] Running /usr/bin/env rm -rf /var/www/Chat_space/releases/20180823055601/public/uploads as ec2-user@18.136.39.45
+ DEBUG [0a83fbbb] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env rm -rf /var/www/Chat_space/releases/20180823055601/public/uploads )
+  INFO [280620e1] Finished in 0.274 seconds with exit status 0 (successful).
+  INFO [16131943] Running /usr/bin/env ln -s /var/www/Chat_space/shared/public/uploads /var/www/Chat_space/releases/20180823055601/public/uploads as ec2-user@18.136.39.45
+ DEBUG [16131943] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env ln -s /var/www/Chat_space/shared/public/uploads /var/www/Chat_space/releases/20180823055601/public/uploads )
+  INFO [6c9bea0b] Finished in 0.752 seconds with exit status 0 (successful).
+ DEBUG [8005eb75] Running [ -L /var/www/Chat_space/releases/20180823055601/public/assets ] as ec2-user@18.136.39.45
+ DEBUG [8005eb75] Command: [ -L /var/www/Chat_space/releases/20180823055601/public/assets ]
+ DEBUG [d9a940af] Finished in 0.347 seconds with exit status 1 (failed).
+ DEBUG [f5e8f532] Running [ -d /var/www/Chat_space/releases/20180823055601/public/assets ] as ec2-user@18.136.39.45
+ DEBUG [f5e8f532] Command: [ -d /var/www/Chat_space/releases/20180823055601/public/assets ]
+ DEBUG [50d63f0e] Finished in 0.749 seconds with exit status 1 (failed).
+  INFO [5edc8b22] Running /usr/bin/env ln -s /var/www/Chat_space/shared/public/assets /var/www/Chat_space/releases/20180823055601/public/assets as ec2-user@18.136.39.45
+ DEBUG [5edc8b22] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env ln -s /var/www/Chat_space/shared/public/assets /var/www/Chat_space/releases/20180823055601/public/assets )
+  INFO [14e7fdaf] Finished in 0.376 seconds with exit status 0 (successful).
+ DEBUG [09209b83] Running if test ! -d /var/www/Chat_space/releases/20180823055601; then echo "Directory does not exist '/var/www/Chat_space/releases/20180823055601'" 1>&2; false; fi as ec2-user@18.136.39.45
+ DEBUG [09209b83] Command: if test ! -d /var/www/Chat_space/releases/20180823055601; then echo "Directory does not exist '/var/www/Chat_space/releases/20180823055601'" 1>&2; false; fi
+ DEBUG [9d630bef] Finished in 0.607 seconds with exit status 0 (successful).
+ DEBUG [6fa053cd] Running $HOME/.rbenv/bin/rbenv exec bundle check --path /var/www/Chat_space/shared/bundle as ec2-user@18.136.39.45
+ DEBUG [6fa053cd] Command: cd /var/www/Chat_space/releases/20180823055601 && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; $HOME/.rbenv/bin/rbenv exec bundle check --path /var/www/Chat_space/shared/bundle )
+ DEBUG [fed28379] 	The following gems are missing
+ DEBUG [fed28379] 	 * public_suffix (3.0.3)
+ DEBUG [fed28379] 	 * addressable (2.5.2)
+ DEBUG [fed28379] 	 * net-ssh (5.0.2)
+ DEBUG [fed28379] 	 * net-scp (1.2.1)
+ DEBUG [fed28379] 	 * sshkit (1.17.0)
+ DEBUG [fed28379] 	 * airbrussh (1.3.0)
+ DEBUG [fed28379] 	 * bindex (0.5.0)
+ DEBUG [fed28379] 	 * byebug (10.0.2)
+ DEBUG [fed28379] 	 * capistrano (3.11.0)
+ DEBUG [fed28379] 	 * capistrano-bundler (1.3.0)
+ DEBUG [fed28379] 	 * capistrano-rails (1.4.0)
+ DEBUG [fed28379] 	 * capistrano-rbenv (2.1.3)
+ DEBUG [fed28379] 	 * capistrano3-unicorn (0.2.1)
+ DEBUG [fed28379] 	 * xpath (3.1.0)
+ DEBUG [fed28379] 	 * capybara (3.6.0)
+ DEBUG [fed28379] 	 * diff-lcs (1.3)
+ DEBUG [fed28379] 	 * faker (1.9.1)
+ DEBUG [fed28379] 	 * listen (3.0.8)
+ DEBUG [fed28379] 	 * rails-controller-testing (1.0.2)
+ DEBUG [fed28379] 	 * rspec-support (3.8.0)
+ DEBUG [fed28379] 	 * rspec-core (3.8.0)
+ DEBUG [fed28379] 	 * rspec-expectations (3.8.1)
+ DEBUG [fed28379] 	 * rspec-mocks (3.8.0)
+ DEBUG [fed28379] 	 * rspec-rails (3.8.0)
+ DEBUG [fed28379] 	 * spring (2.0.2)
+ DEBUG [fed28379] 	 * spring-watcher-listen (2.0.1)
+ DEBUG [fed28379] 	 * web-console (3.6.2)
+ DEBUG [fed28379] 	Install missing gems with `bundle install`
+ DEBUG [fed28379] Finished in 1.058 seconds with exit status 1 (failed).
+  INFO [4a8da2ad] Running $HOME/.rbenv/bin/rbenv exec bundle install --path /var/www/Chat_space/shared/bundle --without development test --deployment --quiet as ec2-user@18.136.39.45
+ DEBUG [4a8da2ad] Command: cd /var/www/Chat_space/releases/20180823055601 && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; $HOME/.rbenv/bin/rbenv exec bundle install --path /var/www/Chat_space/shared/bundle --without development test --deployment --quiet )
+  INFO [a624746d] Finished in 0.915 seconds with exit status 0 (successful).
+ DEBUG [70130389] Running if test ! -d /var/www/Chat_space/releases/20180823055601; then echo "Directory does not exist '/var/www/Chat_space/releases/20180823055601'" 1>&2; false; fi as ec2-user@18.136.39.45
+ DEBUG [70130389] Command: if test ! -d /var/www/Chat_space/releases/20180823055601; then echo "Directory does not exist '/var/www/Chat_space/releases/20180823055601'" 1>&2; false; fi
+ DEBUG [ba29a6a2] Finished in 0.295 seconds with exit status 0 (successful).
+  INFO [5e68593c] Running $HOME/.rbenv/bin/rbenv exec bundle exec rake assets:precompile as ec2-user@18.136.39.45
+ DEBUG [5e68593c] Command: cd /var/www/Chat_space/releases/20180823055601 && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" RAILS_ENV="production" RAILS_GROUPS="" ; $HOME/.rbenv/bin/rbenv exec bundle exec rake assets:precompile )
+  INFO [1fb4e0ed] Finished in 2.687 seconds with exit status 0 (successful).
+ DEBUG [1d2b43c0] Running if test ! -d /var/www/Chat_space/releases/20180823055601; then echo "Directory does not exist '/var/www/Chat_space/releases/20180823055601'" 1>&2; false; fi as ec2-user@18.136.39.45
+ DEBUG [1d2b43c0] Command: if test ! -d /var/www/Chat_space/releases/20180823055601; then echo "Directory does not exist '/var/www/Chat_space/releases/20180823055601'" 1>&2; false; fi
+ DEBUG [8c823365] Finished in 0.311 seconds with exit status 0 (successful).
+  INFO [4033dbae] Running /usr/bin/env mkdir -p /var/www/Chat_space/releases/20180823055601/assets_manifest_backup as ec2-user@18.136.39.45
+ DEBUG [4033dbae] Command: cd /var/www/Chat_space/releases/20180823055601 && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env mkdir -p /var/www/Chat_space/releases/20180823055601/assets_manifest_backup )
+  INFO [71bc533c] Finished in 0.317 seconds with exit status 0 (successful).
+ DEBUG [263a8154] Running /usr/bin/env ls /var/www/Chat_space/releases/20180823055601/public/assets/.sprockets-manifest* as ec2-user@18.136.39.45
+ DEBUG [263a8154] Command: cd /var/www/Chat_space/releases/20180823055601 && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env ls /var/www/Chat_space/releases/20180823055601/public/assets/.sprockets-manifest* )
+ DEBUG [5b5f82fc] 	/var/www/Chat_space/releases/20180823055601/public/assets/.sprockets-manifest-e0a6bd1b3344efd2c979786e872f9298.json
+ DEBUG [5b5f82fc] Finished in 0.467 seconds with exit status 0 (successful).
+ DEBUG [a1708588] Running /usr/bin/env ls /var/www/Chat_space/releases/20180823055601/public/assets/.sprockets-manifest* as ec2-user@18.136.39.45
+ DEBUG [a1708588] Command: cd /var/www/Chat_space/releases/20180823055601 && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env ls /var/www/Chat_space/releases/20180823055601/public/assets/.sprockets-manifest* )
+ DEBUG [e068d478] 	/var/www/Chat_space/releases/20180823055601/public/assets/.sprockets-manifest-e0a6bd1b3344efd2c979786e872f9298.json
+ DEBUG [e068d478] Finished in 0.297 seconds with exit status 0 (successful).
+  INFO [b53be8ce] Running /usr/bin/env cp /var/www/Chat_space/releases/20180823055601/public/assets/.sprockets-manifest-e0a6bd1b3344efd2c979786e872f9298.json /var/www/Chat_space/releases/20180823055601/assets_manifest_backup as ec2-user@18.136.39.45
+ DEBUG [b53be8ce] Command: cd /var/www/Chat_space/releases/20180823055601 && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env cp /var/www/Chat_space/releases/20180823055601/public/assets/.sprockets-manifest-e0a6bd1b3344efd2c979786e872f9298.json /var/www/Chat_space/releases/20180823055601/assets_manifest_backup )
+  INFO [83d5245b] Finished in 0.398 seconds with exit status 0 (successful).
+  INFO [deploy:migrate] Run `rake db:migrate`
+ DEBUG [f359cb57] Running if test ! -d /var/www/Chat_space/releases/20180823055601; then echo "Directory does not exist '/var/www/Chat_space/releases/20180823055601'" 1>&2; false; fi as ec2-user@18.136.39.45
+ DEBUG [f359cb57] Command: if test ! -d /var/www/Chat_space/releases/20180823055601; then echo "Directory does not exist '/var/www/Chat_space/releases/20180823055601'" 1>&2; false; fi
+ DEBUG [e8041ac6] Finished in 0.290 seconds with exit status 0 (successful).
+  INFO [8a2e62db] Running $HOME/.rbenv/bin/rbenv exec bundle exec rake db:migrate as ec2-user@18.136.39.45
+ DEBUG [8a2e62db] Command: cd /var/www/Chat_space/releases/20180823055601 && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" RAILS_ENV="production" ; $HOME/.rbenv/bin/rbenv exec bundle exec rake db:migrate )
+  INFO [748297f6] Finished in 2.338 seconds with exit status 0 (successful).
+  INFO [c7f59b18] Running /usr/bin/env ln -s /var/www/Chat_space/releases/20180823055601 /var/www/Chat_space/releases/current as ec2-user@18.136.39.45
+ DEBUG [c7f59b18] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env ln -s /var/www/Chat_space/releases/20180823055601 /var/www/Chat_space/releases/current )
+  INFO [29fd3b63] Finished in 0.442 seconds with exit status 0 (successful).
+  INFO [dc3e5283] Running /usr/bin/env mv /var/www/Chat_space/releases/current /var/www/Chat_space as ec2-user@18.136.39.45
+ DEBUG [dc3e5283] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env mv /var/www/Chat_space/releases/current /var/www/Chat_space )
+  INFO [77d60f61] Finished in 0.607 seconds with exit status 0 (successful).
+ DEBUG [875aa94a] Running if test ! -d /var/www/Chat_space/current; then echo "Directory does not exist '/var/www/Chat_space/current'" 1>&2; false; fi as ec2-user@18.136.39.45
+ DEBUG [875aa94a] Command: if test ! -d /var/www/Chat_space/current; then echo "Directory does not exist '/var/www/Chat_space/current'" 1>&2; false; fi
+ DEBUG [b13be45e] Finished in 0.307 seconds with exit status 0 (successful).
+ DEBUG [873a8927] Running [ -e /var/www/Chat_space/shared/tmp/pids/unicorn.pid ] && kill -0 `cat /var/www/Chat_space/shared/tmp/pids/unicorn.pid` as ec2-user@18.136.39.45
+ DEBUG [873a8927] Command: [ -e /var/www/Chat_space/shared/tmp/pids/unicorn.pid ] && kill -0 `cat /var/www/Chat_space/shared/tmp/pids/unicorn.pid`
+ DEBUG [2269b723] Finished in 0.289 seconds with exit status 1 (failed).
+  INFO [21bc88d9] Running $HOME/.rbenv/bin/rbenv exec bundle exec unicorn -c /var/www/Chat_space/current/config/unicorn.rb -E deployment -D  as ec2-user@18.136.39.45
+ DEBUG [21bc88d9] Command: cd /var/www/Chat_space/current && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" RAILS_ENV="production" ; $HOME/.rbenv/bin/rbenv exec bundle exec unicorn -c /var/www/Chat_space/current/config/unicorn.rb -E deployment -D  )
+  INFO [21001907] Finished in 2.815 seconds with exit status 0 (successful).
+ DEBUG [629fa2ea] Running if test ! -d /var/www/Chat_space/current; then echo "Directory does not exist '/var/www/Chat_space/current'" 1>&2; false; fi as ec2-user@18.136.39.45
+ DEBUG [629fa2ea] Command: if test ! -d /var/www/Chat_space/current; then echo "Directory does not exist '/var/www/Chat_space/current'" 1>&2; false; fi
+ DEBUG [f9ec4128] Finished in 0.488 seconds with exit status 0 (successful).
+  INFO unicorn restarting...
+  INFO [09686322] Running /usr/bin/env kill -s USR2 `cat /var/www/Chat_space/shared/tmp/pids/unicorn.pid` as ec2-user@18.136.39.45
+ DEBUG [09686322] Command: cd /var/www/Chat_space/current && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env kill -s USR2 `cat /var/www/Chat_space/shared/tmp/pids/unicorn.pid` )
+  INFO [03fc72c8] Finished in 0.635 seconds with exit status 0 (successful).
+ DEBUG [6747417a] Running /usr/bin/env ls -x /var/www/Chat_space/releases as ec2-user@18.136.39.45
+ DEBUG [6747417a] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env ls -x /var/www/Chat_space/releases )
+ DEBUG [d3075d4e] 	20180822042704	20180822043818	20180822044018	20180822044459	20180823053300
+20180823055601
+ DEBUG [d3075d4e] Finished in 0.416 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on 18.136.39.45
+ DEBUG [34f6c5de] Running [ -d /var/www/Chat_space/current ] as ec2-user@18.136.39.45
+ DEBUG [34f6c5de] Command: [ -d /var/www/Chat_space/current ]
+ DEBUG [4eb2cf5c] Finished in 0.625 seconds with exit status 0 (successful).
+ DEBUG [7c235956] Running /usr/bin/env readlink /var/www/Chat_space/current as ec2-user@18.136.39.45
+ DEBUG [7c235956] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env readlink /var/www/Chat_space/current )
+ DEBUG [e59f63ae] 	/var/www/Chat_space/releases/20180823055601
+ DEBUG [e59f63ae] Finished in 0.359 seconds with exit status 0 (successful).
+  INFO [0f4fae64] Running /usr/bin/env rm -rf /var/www/Chat_space/releases/20180822042704 as ec2-user@18.136.39.45
+ DEBUG [0f4fae64] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env rm -rf /var/www/Chat_space/releases/20180822042704 )
+  INFO [69360dee] Finished in 0.587 seconds with exit status 0 (successful).
+ DEBUG [861458c2] Running if test ! -d /var/www/Chat_space/releases; then echo "Directory does not exist '/var/www/Chat_space/releases'" 1>&2; false; fi as ec2-user@18.136.39.45
+ DEBUG [861458c2] Command: if test ! -d /var/www/Chat_space/releases; then echo "Directory does not exist '/var/www/Chat_space/releases'" 1>&2; false; fi
+ DEBUG [0237b32d] Finished in 0.767 seconds with exit status 0 (successful).
+  INFO [9b283e29] Running /usr/bin/env echo "Branch master (at d1dd69f19dfcd9f108f27d7807f29f1b1a03ae50) deployed as release 20180823055601 by nakamuratatsuki" >> /var/www/Chat_space/revisions.log as ec2-user@18.136.39.45
+ DEBUG [9b283e29] Command: cd /var/www/Chat_space/releases && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" AWS_ACCESS_KEY_ID="AKIAJOLSQKLUTIVTDGJA" AWS_SECRET_ACCESS_KEY="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" RBENV_VERSION="2.3.1" ; /usr/bin/env echo "Branch master (at d1dd69f19dfcd9f108f27d7807f29f1b1a03ae50) deployed as release 20180823055601 by nakamuratatsuki" >> /var/www/Chat_space/revisions.log )
+  INFO [2c7ccf6a] Finished in 0.289 seconds with exit status 0 (successful).
