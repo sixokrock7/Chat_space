@@ -63,7 +63,6 @@ function scroll() {
   //メッセージ自動更新機能
   var interval = setInterval(function() {
     if (window.location.pathname.match(/\/groups\/\d+\/messages/)) {
-      scroll();
       var id = $(".right__contents--bellow__box").last().data('message-id');
       $.ajax({
         type: 'GET',
