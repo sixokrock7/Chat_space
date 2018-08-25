@@ -2,7 +2,10 @@ $(document).on('turbolinks:load', function() {
 
 function buildHTML(message) {
   var image = "";
-  var image = (message.image)? `<image class="lower-message_image right__contents--bellow__box-message" src="${message.image}">`:"";
+  var content = "";
+  image = (message.image) ? `<image class="lower-message_image right__contents--bellow__box-message" src="${message.image}">`:"";
+  content = (message.content) ? `${message.content}` : "";
+
   var html = `<div class="right__contents--bellow__box" data-message-id="${message.id}">
                 <div class="right__contents--bellow__box-name">${message.name}</div>
                 <div class="right__contents--bellow__box-time">
@@ -22,13 +25,13 @@ function scroll() {
   }, 'slow', 'swing');
 }
 
-  $('#form').on('submit', function(e) {
+  $('#new_message').on('submit', function(e) {
     //formを送信するデフォルトのイベントを止める
     e.preventDefault();
     //イベントで発生したDOM要素をthisで取得して引数にとり、FormDataオブジェクトを作成
     var formData = new FormData($(this).get(0));
     //フォーム送信先のURLを定義
-    var url = window.location.pathname;
+    var url = $(this).attr('action');
     $.ajax({
       //リクエストする先のURLを指定
       url: url,
@@ -60,6 +63,7 @@ function scroll() {
   //メッセージ自動更新機能
   var interval = setInterval(function() {
     if (window.location.pathname.match(/\/groups\/\d+\/messages/)) {
+      scroll();
       var id = $(".right__contents--bellow__box").last().data('message-id');
       $.ajax({
         type: 'GET',
@@ -68,13 +72,13 @@ function scroll() {
         dataType: 'json'
       })
       .done(function(data) {
-        if (data.length !== 0) {
+        if (data.messages.length !== 0) {
           var insertHTML = '';
           data.messages.forEach(function(message) {
-            insertHTML =  buildHTML(message);
+            insertHTML = buildHTML(message);
             $('.right__contents--bellow').append(insertHTML);
+            scroll();
           });
-          scroll();
         }
       })
       .fail(function() {
