@@ -1,8 +1,10 @@
 $(document).on('turbolinks:load', function() {
 
 function buildHTML(message) {
-  var image = (message.image) ? `<image class="lower-message_image right__contents--bellow__box-message" src="${message.image}">`:"";
-  var content = (message.content) ? `<div class="right__contents--bellow__box-message">${message.content}</div>` : "";
+  var image = "";
+  var content = "";
+  image = (message.image) ? `<image class="lower-message_image right__contents--bellow__box-message" src="${message.image}">`:"";
+  content = (message.content) ? `<div class="right__contents--bellow__box-message">${message.content}</div>` : "";
 
   var html = `<div class="right__contents--bellow__box" data-message-id="${message.id}">
                 <div class="right__contents--bellow__box-name">${message.name}</div>
