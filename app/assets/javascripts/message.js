@@ -1,19 +1,15 @@
 $(document).on('turbolinks:load', function() {
 
 function buildHTML(message) {
-  var image = "";
-  var content = "";
-  image = (message.image) ? `<image class="lower-message_image right__contents--bellow__box-message" src="${message.image}">`:"";
-  content = (message.content) ? `${message.content}` : "";
+  var image = (message.image) ? `<image class="lower-message_image right__contents--bellow__box-message" src="${message.image}">`:"";
+  var content = (message.content) ? `<div class="right__contents--bellow__box-message">${message.content}</div>` : "";
 
   var html = `<div class="right__contents--bellow__box" data-message-id="${message.id}">
                 <div class="right__contents--bellow__box-name">${message.name}</div>
                 <div class="right__contents--bellow__box-time">
-                  ${message.created_at}
+                  ${ message.created_at }
                 </div>
-                <div class="right__contents--bellow__box-message">
-                  ${message.content}
-                </div>
+                ${ content }
                 ${ image }
               </div>`
   return html;
@@ -24,7 +20,6 @@ function scroll() {
     scrollTop: $('.right__contents--bellow')[0].scrollHeight
   }, 'slow', 'swing');
 }
-
   $('#new_message').on('submit', function(e) {
     //formを送信するデフォルトのイベントを止める
     e.preventDefault();
@@ -32,33 +27,38 @@ function scroll() {
     var formData = new FormData($(this).get(0));
     //フォーム送信先のURLを定義
     var url = $(this).attr('action');
-    $.ajax({
-      //リクエストする先のURLを指定
-      url: url,
-      //HTTP通信の種類を指定
-      type: "POST",
-      //サーバに送信する値を記述
-      data: formData,
-      //サーバから返される値を記述
-      dataType: 'json',
-      //dataで指定したオブジェクトをクエリ文字列に変換
-      processData: false,
-      //サーバにデータのファイル形式を伝えるヘッダです。こちらはデフォルトでは「text/xml」でコンテンツタイプをXMLとして返す
-      //ajaxのリクエストがFormDataのときはどちらの値も適切な状態で送ることが可能なため、falseにすることで設定が上書きされることを防ぐ
-      contentType: false
-    })
-    //非同期通信に成功した時の動作
-    .done(function(data) {
-      var html = buildHTML(data);
-      $('.right__contents--bellow').append(html);
-      $('.form__message--post').val('');
-      $('.hidden').val('');
-      scroll();
-      $('.form__submit').prop('disabled', false);
-    })
-    .fail(function(){
-      alert('error');
-    })
+    if ((formData.get("message[content]").length != 0 || formData.get("message[image]").size != 0 )) {
+      $.ajax({
+        //リクエストする先のURLを指定
+        url: url,
+        //HTTP通信の種類を指定
+        type: "POST",
+        //サーバに送信する値を記述
+        data: formData,
+        //サーバから返される値を記述
+        dataType: 'json',
+        //dataで指定したオブジェクトをクエリ文字列に変換
+        processData: false,
+        //サーバにデータのファイル形式を伝えるヘッダです。こちらはデフォルトでは「text/xml」でコンテンツタイプをXMLとして返す
+        //ajaxのリクエストがFormDataのときはどちらの値も適切な状態で送ることが可能なため、falseにすることで設定が上書きされることを防ぐ
+        contentType: false
+      })
+      //非同期通信に成功した時の動作
+      .done(function(data) {
+        var html = buildHTML(data);
+        $('.right__contents--bellow').append(html);
+        $('.form__message--post').val('');
+        $('.hidden').val('');
+        scroll();
+        $('.form__submit').prop('disabled', false);
+      })
+      .fail(function(){
+        alert('error');
+      })
+    } else {
+      alert("値を入力してください");
+    }
+    return false;
   });
   //メッセージ自動更新機能
   var interval = setInterval(function() {

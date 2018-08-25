@@ -21,6 +21,6 @@
         = f.text_field :content, class: 'form__message--post', placeholder: 'type a message'
         .form__mask
           = f.label :image, class: 'form__mask__image' do
-            = f.file_field :image, class: 'hidden', onchange: "$(this).submit();"
+            = f.file_field :image, class: 'hidden'
             = fa_icon 'picture-o', class: 'icon'
-        = f.submit 'Send', class: 'form__submit', name: "submit"
+        = f.submit 'Send', class: 'form__submit'
